@@ -2,6 +2,7 @@ class MiniMath:
 	mean = lambda self, A: sum(A) / len(A)
 	median = lambda self, A: sorted(A)[int(len(A) / 2)]
 	mode = lambda self, A: max(A, key=A.count)
+	sqrt = lambda self, A: sum(A) ** 0.5 if hasattr(A, "__iter__") else A ** 0.5
 	least_common_item = lambda self, A: min(A, key=A.count)
 	matrix_add = lambda self, A, B: list(map(lambda x, y: [a + b for a, b in zip(x, y)], A, B))
 	matrix_subtract = lambda self, A, B: list(map(lambda x, y: [a - b for a, b in zip(x, y)], A, B))
