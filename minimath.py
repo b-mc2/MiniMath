@@ -10,6 +10,7 @@ class MiniMath:
 	dot = lambda self, A, B: sum(x * y for x, y in zip(A, B))
 	cosine_similarity = (lambda self, A, B: self.dot(A, B) / (sum([i ** 2 for i in A]) ** (1 / 2) * sum([i ** 2 for i in B]) ** (1 / 2)))
 	jaccard = lambda self, A, B: len(set(A).intersection(set(B))) / len(set(A).union(set(B)))
+	hamming = lambda self, A, B: len(list(filter(lambda x: x[0] == x[1], zip(A, B))))
 	mse = lambda self, A, B: sum(map(lambda x: (x[0] - x[1]) ** 2, zip(A, B))) / len(A)
 	reshape = lambda self, A, n: [A[i:i + int(len(A) / n)] for i in range(0, len(A), int(len(A) / n))]
 	smallest_pair = lambda self, A: min(A, key=lambda sub: abs(sub[1] - sub[0]))
