@@ -13,6 +13,7 @@ class MiniMath:
 	jaccard = lambda self, A, B: len(set(A).intersection(set(B))) / len(set(A).union(set(B)))
 	hamming = lambda self, A, B: len(list(filter(lambda x: x[0] == x[1], zip(A, B))))
 	mse = lambda self, A, B: sum(map(lambda x: (x[0] - x[1]) ** 2, zip(A, B))) / len(A)
+	lsr = lambda self, x, y: [(sum_xy * len(x) - sum_x * sum_y) / (sum_xx * len(x) - sum_x ** 2) * i + (sum_y - (sum_xy * len(x) - sum_x * sum_y) / (sum_xx * len(x) - sum_x ** 2) * sum_x) / len(x) for i, sum_x, sum_y, sum_xx, sum_xy in [(xi, sum(x), sum(y), sum([xj ** 2 for xj in x]), sum([xj * yj for xj, yj in zip(x, y)])) for xi in x]]
 	reshape = lambda self, A, n: [A[i:i + int(len(A) / n)] for i in range(0, len(A), int(len(A) / n))]
 	smallest_pair = lambda self, A: min(A, key=lambda sub: abs(sub[1] - sub[0]))
 	largest_pair = lambda self, A: max(A, key=lambda sub: abs(sub[1] + sub[0]))
@@ -31,6 +32,7 @@ class MiniMath:
 	unzip_lists = lambda self, A: list(map(list, zip(*A)))
 	combine_lists_str = lambda self, A, B, Sep: list(map(lambda a, b: f"{a}{Sep}{b}", A, B))
 	check_prime = lambda self, n: False if int(str(n)[-1]) % 2 == 0 else any([i for i in range(2, int(n ** 0.5) + 1) if n % i == 0]) != True
+	find_primes = lambda self, n: [i for i in range(3, n) if (False if int(str(i)[-1]) % 2 == 0 else any([j for j in range(2, int(i ** 0.5) + 1) if i % j == 0]) != True)]
 	find_mersenne_prime = lambda self, n: list(filter(lambda i: i is not None, list(map(lambda x: 2 ** x - 1 if self.check_prime(2 ** x - 1) else None, range(1, n + 1)))))
 	rot13 = lambda self, word: "".join(list(map(lambda l: chr(((ord(l) - 84) % 26) + 97), word)))
 	nested_tuple_it = (lambda self, x: tuple(map(lambda i: self.nested_tuple_it(i) if isinstance(i, list) else i, x)) if isinstance(x, list) else x)
