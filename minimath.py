@@ -12,6 +12,7 @@ class MiniMath:
 	cosine_similarity = (lambda self, A, B: self.dot(A, B) / (sum([i ** 2 for i in A]) ** (1 / 2) * sum([i ** 2 for i in B]) ** (1 / 2)))
 	jaccard = lambda self, A, B: len(set(A).intersection(set(B))) / len(set(A).union(set(B)))
 	hamming = lambda self, A, B: len(list(filter(lambda x: x[0] == x[1], zip(A, B))))
+	pythagorean = lambda self, A, B: sum(map(lambda i: (i[0] - i[1]) ** 2, list(zip(A, B)))) ** 0.5
 	mse = lambda self, A, B: sum(map(lambda x: (x[0] - x[1]) ** 2, zip(A, B))) / len(A)
 	lsr = lambda self, x, y: [(sum_xy * len(x) - sum_x * sum_y) / (sum_xx * len(x) - sum_x ** 2) * i + (sum_y - (sum_xy * len(x) - sum_x * sum_y) / (sum_xx * len(x) - sum_x ** 2) * sum_x) / len(x) for i, sum_x, sum_y, sum_xx, sum_xy in [(xi, sum(x), sum(y), sum([xj ** 2 for xj in x]), sum([xj * yj for xj, yj in zip(x, y)])) for xi in x]]
 	reshape = lambda self, A, n: [A[i:i + int(len(A) / n)] for i in range(0, len(A), int(len(A) / n))]
