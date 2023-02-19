@@ -9,7 +9,7 @@ class MiniMath:
 	scalar_multiply = (lambda self, A, B: [[sum(ea * eb for ea, eb in zip(a, b)) for b in zip(*B)] for a in A] if isinstance(B, list) else [sum(ea * B for ea in a) for a in A])
 	matrix_product = lambda self, A, B: [[sum(ea * eb for ea, eb in zip(a, b)) for b in zip(*B)] for a in A]
 	dot = lambda self, A, B: sum(x * y for x, y in zip(A, B))
-	exp = lambda self, A: [2.718281**a for a in A]
+	exp = lambda self, A: [2.718281**a for a in A] if hasattr(A, '__iter__') else 2.718281**A
 	cosine_similarity = (lambda self, A, B: self.dot(A, B) / (sum([i ** 2 for i in A]) ** (1 / 2) * sum([i ** 2 for i in B]) ** (1 / 2)))
 	jaccard = lambda self, A, B: len(set(A).intersection(set(B))) / len(set(A).union(set(B)))
 	hamming = lambda self, A, B: len(list(filter(lambda x: x[0] == x[1], zip(A, B))))
