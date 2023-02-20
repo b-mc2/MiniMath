@@ -16,7 +16,62 @@ use this for any mission-critical calculations.
 So go ahead, have fun with MiniMath. You can impress your friends with your single-liner skills and make them shake 
 their head at the ridiculousness of it at the same time.
 
-Some examples:
+#### Current Functions supported
+- Mean, Median, Mode
+- Square Root
+- Least Common Item 
+  - Returns the item of an iterable that occurs the fewest amount of times 
+- Matrix Addition, Subtraction, Product
+- Scalar Multiplication
+- Dot Products
+  - Similar to `np.dot()`
+- Exponentials
+  - Similar to `np.exp()`
+- Sigmoid
+- Cosine Similarity
+- Jaccard and Hamming Distances (for iterables including strings)
+- Pythagorean distances (2D and n-D)
+- Mean Squared Error
+- Least Squares Regression
+  - Returns LSR line when given two iterables
+  - ToDo: Return function, add predict ability
+- Reshape
+  - Reshapes a list into N lists of lists
+- Smallest and Largest Pairs
+  - Returns the pair with smallest or largest difference between iterables
+- Max Index Values
+  - Checks values between two iterables at each index and returns the higher value
+- Percentile
+- Variance, Variance Sample
+- Standard Deviation, Standard Deviation Sample
+- Cross Sum
+  - Takes two iterables and sums the values by each index
+- Sort Dictionary by Values
+- Sort List of Dictionaries by values
+- Filter List Min/Max
+  - Filters a list down by values above min, or below max
+- Zip/Unzip Lists
+  - Zips or Unzips two lists and returns lists of lists
+- Combine Lists String
+  - Combines two lists with a custom string separator
+- Check Prime
+  - Checks if a number is prime or not, returns boolean
+- Find Primes/Find Mersenne Primes
+  - Finds all prime numbers up to N, or finds only Mersenne Primes up untill N (being the exponent)
+- ROT13
+  - A simple ROT13 Caesar Cipher
+- Nested Tuple It/List It
+  - Convert nested tuples to lists, or lists to tuples
+- Factoral
+- Check N Divisible by X,Y
+  - Takes in N, X, and Y and returns Boolean checking if N is divisible by X and Y
+- Find odd/even below N
+  - Returns a list of odd or even numbers below the value N
+- Remove Outliers
+  - Takes an iterable and N (number of standard deviations from mean) and returns values that fall within N
+
+
+**Some examples:**
 
 #### Mean Squared Error
 ```python
