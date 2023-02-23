@@ -58,8 +58,7 @@ their head at the ridiculousness of it at the same time.
   - Checks if a number is prime or not, returns boolean
 - Find Primes/Find Mersenne Primes
   - Finds all prime numbers up to N, or finds only Mersenne Primes up untill N (being the exponent)
-- ROT13
-  - A simple ROT13 Caesar Cipher
+- ROT13 cipher, XOR Cipher
 - Nested Tuple It/List It
   - Convert nested tuples to lists, or lists to tuples
 - Factoral
