@@ -37,7 +37,7 @@ class MiniMath:
 	check_prime = lambda self, n: False if int(str(n)[-1]) % 2 == 0 else any([i for i in range(2, int(n ** 0.5) + 1) if n % i == 0]) != True
 	find_primes = lambda self, n: [i for i in range(3, n) if (False if int(str(i)[-1]) % 2 == 0 else any([j for j in range(2, int(i ** 0.5) + 1) if i % j == 0]) != True)]
 	find_mersenne_prime = lambda self, n: list(filter(lambda i: i is not None, list(map(lambda x: 2 ** x - 1 if self.check_prime(2 ** x - 1) else None, range(1, n + 1)))))
-	rot13 = lambda self, word: "".join(list(map(lambda l: chr(((ord(l) - 84) % 26) + 97), word)))
+	rot13 = lambda self, word: "".join(map(lambda l: chr(((ord(l) - 84) % 26) + 97), word))
 	xor_cipher = lambda self, message, key: "".join([chr(ord(m) ^ ord(k)) for (m, k) in zip(message, key * len(message))])
 	nested_tuple_it = (lambda self, x: tuple(map(lambda i: self.nested_tuple_it(i) if isinstance(i, list) else i, x)) if isinstance(x, list) else x)
 	nested_list_it = (lambda self, x: list(map(lambda i: self.nested_list_it(i) if isinstance(i, tuple) else i, x)) if isinstance(x, tuple) else x)
