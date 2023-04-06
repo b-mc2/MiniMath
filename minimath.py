@@ -11,6 +11,8 @@ class MiniMath:
 	dot = lambda self, A, B: sum(x * y for x, y in zip(A, B))
 	exp = lambda self, A: [2.718281**a for a in A] if hasattr(A, '__iter__') else 2.718281**A
 	sigmoid = lambda self, A: 1.0/(1 + 2.718281**-A)
+	relu = lambda self, A: max(0, A)
+	log = lambda self, A: [100_000 * ((a ** (1 / 100_000)) - 1) for a in A] if hasattr(A, '__iter__') else 100_000 * ((A ** (1 / 100_000)) - 1)
 	cosine_similarity = (lambda self, A, B: self.dot(A, B) / (sum([i ** 2 for i in A]) ** (1 / 2) * sum([i ** 2 for i in B]) ** (1 / 2)))
 	jaccard = lambda self, A, B: len(set(A).intersection(set(B))) / len(set(A).union(set(B)))
 	hamming = lambda self, A, B: len(list(filter(lambda x: x[0] == x[1], zip(A, B))))
